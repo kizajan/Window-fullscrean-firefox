@@ -1,0 +1,121 @@
+/* 自動隱藏工具列 Auto hide toolbars */
+
+/* ---------------------------------------------------------------------------- */
+
+  /* 數值設定 custimizing */
+
+:root {  
+
+  --title: -32px;     /* 標題列上移距離 titlebar movement */
+  
+	  /* 依照界面密度調整 adjust with UI scale setting */
+        /* 觸控touch:-40px,標準normal:-32px,緊密narrow:-28px */
+	  
+  --top: -93px;     /* 瀏覽列上移距離 navigatorbar movement*/
+	  
+	  /* 依照界面密度調整 adjust with UI scale setting */
+        /* 有書籤列 with bookmark toolbar */	    
+           /*觸控touch:-109px, 標準norman:-93px, 緊密narrow:-83px */
+        /* 無書籤列  bookmark toolbar free */
+	       /*觸控touch:-84px, 標準normal:-74px, 緊密narrow:-64px */
+	  
+  --open: 0.5s;     /*開啟延遲 appearing delay */
+  --close: 0.75s;   /*關閉延遲 disappearing delay */
+  --dur: 0.25s;     /*動畫時間 transition duration */
+  --on: 0.9;          /*開啟時不透明度 opacity while appearing */
+  --off: 0;             /*關閉時不透明度 opacity while disappearing */
+  
+}
+
+/* ---------------------------------------------------------------------------- */
+
+
+  /*標題列向上滑出 titlebar slide out */  
+  
+#titlebar {
+  position: fixed;
+  right: 135px;
+  top: var(--title); 
+  z-index: 99999;
+  transition: all var(--dur) ease-in var(--close);
+  opacity: var(--off);
+}
+
+
+  /* 游標移往時標題列向下滑入 titlebar slide in when cursor-hover */
+  
+#titlebar:hover {
+  top: 0px;
+  transition: all var(--dur) ease-out var(--open);
+  opacity: var:(--on);
+}
+
+
+  /* 瀏覽列向上滑出 navigatorbar silde out */
+  
+#navigator-toolbox {
+  padding-top: 8px;
+  z-index: 99998;
+  transform: translate(0, var(--top); 
+  transition: all var(--dur) ease-in var(--close);
+  opacity: var(--off);
+}
+ 
+ 
+  /* 游標移往時瀏覽列向下滑入 navigatorbar silde in when cursor-hover */
+  
+#navigator-toolbox:hover,
+#navigator-toolbox:focus-within {
+  transform: translate(0, 0);
+  transition: all var(--dur) ease-out var(--open);
+  opacity: var(--on);
+}
+
+
+/* 內容視窗邊距向上調整 adjust content-deck top margin*/
+
+#content-deck {
+  margin-top: calc(var(--top) - 1px); 
+}
+
+
+/* 書籤列隱藏 bookmark toolbar hidden*/
+
+#PersonalToolbar {
+  visibility: hidden !important;
+  transition: all var(--dur) ease-in var(--close) !important;
+  opacity: var(--off) !important;
+}
+ 
+ 
+ /* 游標移往時顯示書籤列 bookmark toolbar show when cursor-hover*/
+ 
+#navigator-toolbox:hover #PersonalToolbar,
+#navigator-toolbox:focus-within #PersonalToolbar {
+   visibility: visible !important;
+   transition: all var(--dur) ease-out (--open) !important;
+   opacity: var(--on) !important;
+}
+
+
+/* 游標移往時才顯示“關閉分頁按鈕” */
+/* keep "tab-close-button" hidden unless cursor-hover */
+
+.tabbrowser-tab:not([pinned]):not(:hover) .tab-close-button { 
+  visibility: collapse !important; 
+}
+.tabbrowser-tab:not([pinned]):hover .tab-close-button { 
+  visibility: visible !important; 
+  display: block !important; 
+}
+
+
+/* 自訂捲軸 custimized scrollbars */
+  /* 修改"custom_scrollbars.uc.js"以調整設定 */
+  /* adjust effect by "custom_scrollbars.uc.js" */
+  /* 出處original:  "https://github.com/Aris-t2/Scrollbars " */
+
+toolbarbutton#alltabs-button {
+  -moz-binding: url("./userChrome/userChrome.xml#execute_javascript_code");
+}
+
