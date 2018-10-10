@@ -1,6 +1,6 @@
 # Window fullscrean 
 
-auto hide toobars and scrollbars 
-it works with Firefox 57
+Auto hide titlebar, navigatorbar, bookmarkbar, and scrollbars.
+It works with Firefox 62.0.3 now.
 
-put the files to the directory : profile\chrome
+How to use: just put the files to the directory : profile\chrome
