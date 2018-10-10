@@ -81,9 +81,14 @@
 
 /* 內容視窗邊距向上調整 adjust content-deck top margin*/
 
+#main-window[inFullscreen] #content-deck{
+	margin-top: 0px !important;
+}
+
 #content-deck {
   margin-top: calc(var(--top) - 1px); 
 }
+
 
 
 /* 游標移往時才顯示“關閉分頁按鈕” */
