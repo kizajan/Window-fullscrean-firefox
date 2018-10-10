@@ -3,27 +3,34 @@
 /* ---------------------------------------------------------------------------- */
 
   /* 數值設定 custimizing */
+    /* 瀏覽列上移距離 navigatorbar&titlebar movement*/
+    /* 依照界面密度調整 adjust with UI scale setting */
 
-:root {  
-
-  --title: -32px;     /* 標題列上移距離 titlebar movement */
+:root[uidensity=compact]{
+  --title:-40px;
+  --top:-71px;
+}
   
-	  /* 依照界面密度調整 adjust with UI scale setting */
-        /* 觸控touch:-40px,標準normal:-32px,緊密narrow:-28px */
-	  
-  --top: -93px;     /* 瀏覽列上移距離 navigatorbar movement*/
-	  
-	  /* 依照界面密度調整 adjust with UI scale setting */
-        /* 有書籤列 with bookmark toolbar */	    
-           /*觸控touch:-109px, 標準norman:-93px, 緊密narrow:-83px */
-        /* 無書籤列  bookmark toolbar free */
-	       /*觸控touch:-84px, 標準normal:-74px, 緊密narrow:-64px */
-	  
+:root:not([uidensity]) {
+  --title:-32px;
+  --top:-88px;
+}
+  
+:root[uidensity=touch] {
+  --title:-28px;
+  --top:-97px;
+  }
+  
+
+  /* Animation */
+  
+:root{
+	
   --open: 0.5s;     /*開啟延遲 appearing delay */
   --close: 0.75s;   /*關閉延遲 disappearing delay */
   --dur: 0.25s;     /*動畫時間 transition duration */
-  --on: 0.9;          /*開啟時不透明度 opacity while appearing */
-  --off: 0;             /*關閉時不透明度 opacity while disappearing */
+  --on: 0.85;          /*開啟時不透明度 opacity while appearing */
+  --off: 0.1;            /*關閉時不透明度 opacity while disappearing */
   
 }
 
@@ -47,7 +54,7 @@
 #titlebar:hover {
   top: 0px;
   transition: all var(--dur) ease-out var(--open);
-  opacity: var:(--on);
+  opacity: var(--on);
 }
 
 
@@ -56,7 +63,7 @@
 #navigator-toolbox {
   padding-top: 8px;
   z-index: 99998;
-  transform: translate(0, var(--top); 
+  transform: translate(0, var(--top)); 
   transition: all var(--dur) ease-in var(--close);
   opacity: var(--off);
 }
@@ -76,25 +83,6 @@
 
 #content-deck {
   margin-top: calc(var(--top) - 1px); 
-}
-
-
-/* 書籤列隱藏 bookmark toolbar hidden*/
-
-#PersonalToolbar {
-  visibility: hidden !important;
-  transition: all var(--dur) ease-in var(--close) !important;
-  opacity: var(--off) !important;
-}
- 
- 
- /* 游標移往時顯示書籤列 bookmark toolbar show when cursor-hover*/
- 
-#navigator-toolbox:hover #PersonalToolbar,
-#navigator-toolbox:focus-within #PersonalToolbar {
-   visibility: visible !important;
-   transition: all var(--dur) ease-out (--open) !important;
-   opacity: var(--on) !important;
 }
 
 
@@ -118,4 +106,3 @@
 toolbarbutton#alltabs-button {
   -moz-binding: url("./userChrome/userChrome.xml#execute_javascript_code");
 }
-
