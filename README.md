@@ -7,11 +7,11 @@ How to use: just put "userChrome.css" and the folder to the directory : profile\
 
 Previews:
 
-![image](Preview/windowfullscreen.png "windowfullscreen")
-![image](Preview/windowfullscreen2.jpg "windowfullscreen")
-![image](Preview/navigatorbar.jpg "navigatorbar")
-![image](Preview/titlebar.jpg "titlebar right-top"）
-![image](Preview/scroll.png "custom scrolls")
+![1](Preview/windowfullscreen.png "windowfullscreen")
+![2](Preview/windowfullscreen2.jpg "windowfullscreen")
+![3](Preview/navigatorbar.jpg "navigatorbar")
+![4](Preview/titlebar.jpg "titlebar right-top")
+![5](Preview/scroll.png "custom scrolls")
 
 
 
