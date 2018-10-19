@@ -6,20 +6,23 @@
     /* 瀏覽列上移距離 navigatorbar&titlebar movement*/
     /* 依照界面密度調整 adjust with UI scale setting */
 
-:root[uidensity=compact]{
-  --title:-40px;
-  --top:-71px;
+:root[uidensity=compact]{  /* compact(narrow) 緊密 */
+  --title:-20px;    
+  --top:-52px;
+  --book:-20px;
 }
   
-:root:not([uidensity]) {
+:root:not([uidensity]) {  /* normal(standard) 標準 */
   --title:-32px;
-  --top:-88px;
+  --top:-64px;
+  --book:-22px;
 }
   
-:root[uidensity=touch] {
+:root[uidensity=touch] {  /* touch 觸控 */
   --title:-28px;
-  --top:-97px;
-  }
+  --top:-73px;
+  --book:-26px;
+}
   
 
   /* Animation */
@@ -67,15 +70,29 @@
   transition: all var(--dur) ease-in var(--close);
   opacity: var(--off);
 }
+
+  /* 書籤列向上滑出 bookmarkbar silde out */
+  
+#PersonalToolbar{
+  transform: translate(0, calc(var(--top) - 50px)); 
+  transition: all var(--dur) ease-in 1s !important;
+  margin-bottom: var(--book) !important;
+}
  
  
-  /* 游標移往時瀏覽列向下滑入 navigatorbar silde in when cursor-hover */
+  /* 游標移往時瀏覽列及書籤列向下滑入 */
+  /* navigatorbar & bookmarkbar silde in when cursor-hover */
   
 #navigator-toolbox:hover,
 #navigator-toolbox:focus-within {
   transform: translate(0, 0);
   transition: all var(--dur) ease-out var(--open);
   opacity: var(--on);
+}
+
+#navigator-toolbox:hover #PersonalToolbar{
+  transform: translate(0, 0) !important ;
+  transition: all calc(var(--dur) - 0.1s) ease-out var(--open) !important;
 }
 
 
