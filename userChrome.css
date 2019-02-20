@@ -8,23 +8,25 @@
 
 :root[uidensity=compact]{  /* compact(narrow) 緊密 */
   --title:-20px;    
-  --top:-52px;
+  --top:-60px;
   --book:-20px;
 }
   
 :root:not([uidensity]) {  /* normal(standard) 標準 */
   --title:-32px;
-  --top:-64px;
+  --top:-73px;
   --book:-22px;
 }
   
 :root[uidensity=touch] {  /* touch 觸控 */
   --title:-28px;
-  --top:-73px;
+  --top:-80px;
   --book:-26px;
 }
   
-
+#TabToolbar{
+	background-color:#111;
+}
   /* Animation */
   
 :root{
