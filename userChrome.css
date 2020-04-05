@@ -100,11 +100,11 @@
 
 /* 內容視窗邊距向上調整 adjust content-deck top margin*/
 
-#main-window[inFullscreen] #content-deck{
+#main-window[inFullscreen] #browser{
 	margin-top: 0px !important;
 }
 
-#content-deck {
+#browser {
   margin-top: calc(var(--top) - 1px); 
 }
 
@@ -119,14 +119,4 @@
 .tabbrowser-tab:not([pinned]):hover .tab-close-button { 
   visibility: visible !important; 
   display: block !important; 
-}
-
-
-/* 自訂捲軸 custimized scrollbars */
-  /* 修改"custom_scrollbars.uc.js"以調整設定 */
-  /* adjust effect by "custom_scrollbars.uc.js" */
-  /* 出處original:  "https://github.com/Aris-t2/Scrollbars " */
-
-toolbarbutton#alltabs-button {
-  -moz-binding: url("./userChrome/userChrome.xml#execute_javascript_code");
 }
