@@ -2,9 +2,11 @@
 
 Auto hide titlebar, navigatorbar, bookmarkbar, and scrollbars via userchrome.css.
 
-*Updated: now it works with 65.0.1!*
+*Updated: now it works with 74.0.1!*
 
 How to use: just put "userChrome.css" and the folder to the directory : profile\chrome
+
+*custom scrollbar , see this project: https://github.com/spencerwooo/firefox-overlay-scrollbar
 
 Previews:
 
